@@ -42,7 +42,6 @@ const MainPage = () => {
     <div>
 
       <header className="App-header">
-
         <p>
           Welcome to Exameasy
         </p>
@@ -50,9 +49,9 @@ const MainPage = () => {
           AI Enabled Virtual Examination System
         </small>
 
-        <Button id="homeButtons" style={{ fontSize: '15px' }} variant="contained" size="medium" onClick={handleClick}>All the Best</Button>
-        <Button id="homeButtons" variant="contained" onClick={handleClickAdmin}>Admin</Button>
-        <Button id="homeButtons" variant="contained" onClick={headpose}>Headpose</Button>
+        <Button id="homeButtons" style={{ fontSize: '15px' }} variant="contained" size="medium" onClick={handleClick}>Student Login</Button>
+        <Button id="homeButtons" variant="contained" onClick={handleClickAdmin}>Admin Login</Button>
+        <Button id="homeButtons" variant="contained" onClick={headpose}>Check Headpose estimation</Button>
       </header>
     </div>
   );

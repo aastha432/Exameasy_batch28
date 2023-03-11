@@ -49,7 +49,7 @@ GoToAdmin() {
                     <th>Name</th>
                     <th>Email</th>
                     <th>KeyPress</th>
-                    <th>Face</th>
+                    <th>Cheat Score</th>
                     <th>Fullscreen</th>
                     <th>Tab</th>
                     <th>Photo</th>

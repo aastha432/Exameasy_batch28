@@ -40,7 +40,7 @@ const LoginPage = () => {
   const onFaliure = (res) => {
     console.log("Error in logging in - ")
     console.log(res)
-    swal("Login Failed", "Kindly try again using NMIT Google Account", "error");
+    swal("Login Failed", "Kindly try again using Google Account", "error");
     //console.log('[Login Success] res:', res);
   };
 
@@ -70,7 +70,7 @@ const LoginPage = () => {
       <header className="App-header">
         <h1>Login</h1>
         <p>
-          Login using only your NMIT Gmail account
+          Login using only your Gmail account
         </p>
 
         <GoogleLogin
