@@ -42,7 +42,7 @@ GoToAdmin() {
            
       </div>
     
-      <div className="container">
+      <div >
           <table id="example" class="display table">
             <thead class="thead-dark">
                 <tr>
@@ -51,14 +51,13 @@ GoToAdmin() {
                     <th>KeyPress</th>
                     <th>Cheat Score</th>
                     <th>Fullscreen</th>
-                    <th>Tab</th>
+                    <th>Tab Change</th>
                     <th>Photo</th>
                 </tr>
             </thead>
             <tbody>
             {this.state.studentslist.map(data => {
-              var base64 = data.photo; 
-               //console.log("show name", base64);
+                console.log(data)
                 return (
                     <tr className="pool">     
                     <td>{data.sname}</td>

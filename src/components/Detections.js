@@ -57,6 +57,8 @@ export default class Detection extends React.Component {
     });
   };
 
+  
+
   renderPredictions = predictions => {
     //var count=100;
     const ctx = this.canvasRef.current.getContext("2d");
@@ -80,27 +82,37 @@ export default class Detection extends React.Component {
       const textWidth = ctx.measureText(prediction.class).width;
       const textHeight = parseInt(font, 10); // base 10
       ctx.fillRect(x, y, textWidth + 8, textHeight + 8);
+
+      console.log(predictions)
       
       var multiple_face = 0;
       for (let i = 0; i < predictions.length; i++) {
 
         //Face,object detection
         if (predictions[i].class === "cell phone") {
-          swal("Cell Phone Detected", "Action has been Recorded", "error");
+          swal("Cell Phone Detected", "Action has been recorded, your cheat score has increased !","error");
           count_facedetect = count_facedetect + 1;
         }
         else if (predictions[i].class === "book") {
-          swal("Object Detected", "Action has been Recorded", "error");
+          swal("Book Detected", "Action has been recorded, your cheat score has increased !","error");
           count_facedetect = count_facedetect + 1;
         }
         else if (predictions[i].class === "laptop") {
-          swal("Object Detected", "Action has been Recorded", "error");
+          swal("Laptop Detected", "Action has been recorded, your cheat score has increased !","error");
           count_facedetect = count_facedetect + 1;
+        }
+        else if (predictions[i].class === "person") {
+          multiple_face = multiple_face + 1;
         }
         else if (predictions[i].class !== "person") {
-          swal("Face Not Visible", "Action has been Recorded", "error");
+          swal("Face Not Visible", "Action has been recorded, your cheat score has increased !","error");
           count_facedetect = count_facedetect + 1;
         }
+      }
+
+      if(multiple_face >= 2){
+        swal("Multiple persons detected", "Action has been recorded, your cheat score has increased !","error");
+        count_facedetect = count_facedetect + 1;
       }
     });
 

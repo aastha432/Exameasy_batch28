@@ -36,22 +36,31 @@ const MainPage = () => {
     history.push("/posenet")
   }
 
+  const myStyle={
+    backgroundImage: 
+"url('https://media.geeksforgeeks.org/wp-content/uploads/rk.png')",
+    height:'100vh',
+    marginTop:'-70px',
+    fontSize:'50px',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+}
  //  <img src={logo} alt="logo" />
+ // <img src="/background.jpeg" />
 
   return (
     <div>
-
       <header className="App-header">
+      <img src="/background.png" height={250} width={250}/>
         <p>
           Welcome to Exameasy
         </p>
         <small>
-          AI Enabled Virtual Examination System
+          Smart Online Proctoring Examination System
         </small>
-
         <Button id="homeButtons" style={{ fontSize: '15px' }} variant="contained" size="medium" onClick={handleClick}>Student Login</Button>
         <Button id="homeButtons" variant="contained" onClick={handleClickAdmin}>Admin Login</Button>
-        <Button id="homeButtons" variant="contained" onClick={headpose}>Check Headpose estimation</Button>
+        <Button id="homeButtons" variant="contained" onClick={headpose} color="primary">Check Headpose estimation</Button>
       </header>
     </div>
   );

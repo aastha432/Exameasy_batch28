@@ -81,8 +81,8 @@ runPosenet();
             right: 0,
             textAlign: "center",
             zindex: 9,
-            width: 640,
-            height: 480,
+            width: 64,
+            height: 48,
           }}
         />
 
@@ -96,8 +96,8 @@ runPosenet();
             right: 0,
             textAlign: "center",
             zindex: 9,
-            width: 640,
-            height: 480,
+            width: 64,
+            height: 48,
           }}
         />
   </div>

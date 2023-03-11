@@ -22,7 +22,7 @@ const AdminSignIn = () => {
         setCurrentUser(true);
       }).catch((error) =>
       {
-        swal("Please Contact Admin To Register");
+        swal(error.message);
       });    
       
     } catch (error) {
@@ -34,12 +34,6 @@ const AdminSignIn = () => {
   if (currentUser) {
       return <Redirect to="/admin" />;
   }
-
-  // const handleLogout=() =>{
-  //   config.auth.signOut();
-  // };
-
- 
    
   return (
     
@@ -52,9 +46,7 @@ const AdminSignIn = () => {
         <label for="password" style={{color:'white'}}>Password: </label><br/>
         <input type="password" name="password" placeholder="Password" />
         <br/><br/>
-        <br/><br/>
         <input type="submit" class="center-block"/>
-        {/* <button type="submit" align="center">Submit</button> */}
       </form>
       </div>
     

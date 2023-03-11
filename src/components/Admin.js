@@ -63,23 +63,20 @@ const Admin = () => {
         <h3 style={{color:'white'}}>
           Enter a unique code for the exam
     </h3>
+        <input type="text" id="examcode" name="examcode" value={examcode} onChange={onChangeexamcode}></input>
         <br></br>
-        <input type="text" id="examcode" name="examcode" value={examcode} onChange={onChangeexamcode}></input><br></br>
-        <h3 style={{color:'white'}}>Enter Form Link </h3>
+        <br></br>
+        <h3 style={{color:'white'}}>Enter Google/Microsoft form link </h3>
         <input type="text" id="formlink" name="formlink" value={formlink} onChange={onChangeformlink}></input>
         <br></br>
         <br></br>
-        <h3 style={{color:'white'}}>Enter The Time Slot of The Exam In Minutes</h3>
+        <h3 style={{color:'white'}}>Enter the time duration of the exam in MINUTES</h3>
         <input type="text" id="examtimer" name="examtimer" value={examtimer} onChange={onChangeTimer}></input>
         <br></br>
         <br></br>
         <br></br>
-        <div className="side">
-            <Button variant="contained" onClick={handleClicksub} style={{ marginLeft: '10px' }} color="primary" >Submit</Button>
-        
-            <Button variant="contained" onClick={results} style={{ marginLeft: '60px' }} color="secondary">Results</Button>
-        </div>
-        
+        <Button variant="contained" onClick={handleClicksub} style={{ marginLeft: '10px' }} color="primary" >Create Exam</Button>
+        <Button variant="contained" onClick={results} style={{ marginLeft: '60px' }} color="secondary">See Results</Button>
         <br></br>
         <br></br>
         <br></br>
