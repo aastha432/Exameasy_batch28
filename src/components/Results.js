@@ -48,10 +48,13 @@ GoToAdmin() {
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>KeyPress</th>
-                    <th>Cheat Score</th>
-                    <th>Fullscreen</th>
-                    <th>Tab Change</th>
+                    <th>Face not visible (bursts)</th>
+                    <th>Phone detected (bursts)</th>
+                    <th>Book detected (bursts)</th>
+                    <th>Laptop detected (bursts)</th>
+                    <th>Multiple persons detected (bursts)</th>
+                    <th>Fullscreen exit (number)</th>
+                    <th>Tab Change (number)</th>
                     <th>Photo</th>
                 </tr>
             </thead>
@@ -62,8 +65,11 @@ GoToAdmin() {
                     <tr className="pool">     
                     <td>{data.sname}</td>
                     <td>{data.semail}</td>
-                    <td>{data.alt}</td>
                     <td>{data.face}</td>
+                    <td>{data.phone}</td>
+                    <td>{data.book}</td>
+                    <td>{data.laptop}</td>
+                    <td>{data.multiple_face}</td>
                     <td>{data.fullscreen}</td>
                     <td>{data.tab}</td>
                     <td> {<img src={data.photo} width="150px" height="100px"/>}

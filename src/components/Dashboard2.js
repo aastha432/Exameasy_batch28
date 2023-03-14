@@ -6,6 +6,10 @@ import { Button } from '@material-ui/core';
 import "@tensorflow/tfjs";
 import "./Dashboard2.css";
 var count_facedetect = 0;
+var count_phonedetect = 0;
+var count_bookdetect = 0;
+var count_laptopdetect = 0;
+var count_multiplepersonsdetect = 0;
 var form_link = sessionStorage.getItem("form_link")
 
 export default class Dashboard2 extends React.Component {
@@ -82,33 +86,34 @@ export default class Dashboard2 extends React.Component {
       const textWidth = ctx.measureText(prediction.class).width;
       const textHeight = parseInt(font, 10); // base 10
       ctx.fillRect(x, y, textWidth + 8, textHeight + 8);
+
       var multiple_face = 0
       for (let i = 0; i < predictions.length; i++) {
-        if (prediction.class == "person") {
-          multiple_face = multiple_face + 1
-          if (multiple_face >= 2) {
-            swal("Multiple Face Detection", "Action has been Recorded", "error");
-          }
-        }
 
         if (predictions[i].class === "cell phone") {
-          swal("Cell Phone Detected", "Action has been Recorded", "error");
-          count_facedetect = count_facedetect + 1;
+          swal("Cell Phone Detected", "Action has been recorded, your cheat score has increased !","error");
+          count_phonedetect = count_phonedetect + 1;
         }
         else if (predictions[i].class === "book") {
-          swal("Object Detected", "Action has been Recorded", "error");
-          count_facedetect = count_facedetect + 1;
+          swal("Book Detected", "Action has been recorded, your cheat score has increased !","error");
+          count_bookdetect = count_bookdetect + 1;
         }
         else if (predictions[i].class === "laptop") {
-          swal("Object Detected", "Action has been Recorded", "error");
-          count_facedetect = count_facedetect + 1;
+          swal("Laptop Detected", "Action has been recorded, your cheat score has increased !","error");
+          count_laptopdetect = count_laptopdetect + 1;
+        }
+        else if (predictions[i].class === "person") {
+          multiple_face = multiple_face + 1;
         }
         else if (predictions[i].class !== "person") {
-          swal("Face Not Visible", "Action has been Recorded", "error");
+          swal("Face Not Visible", "Action has been recorded, your cheat score has increased !","error");
           count_facedetect = count_facedetect + 1;
         }
       }
-      console.log(count_facedetect);
+      if(multiple_face >= 2){
+        swal("Multiple persons detected", "Action has been recorded, your cheat score has increased !","error");
+        count_multiplepersonsdetect = count_multiplepersonsdetect + 1;
+      }
     });
 
     predictions.forEach(prediction => {
@@ -123,9 +128,13 @@ export default class Dashboard2 extends React.Component {
         ctx.fillText(prediction.class, x, y);
       }
     });
-    console.log("final")
-    console.log(count_facedetect)
+    // console.log("final")
+    // console.log(count_facedetect)
     sessionStorage.setItem("count_facedetect", count_facedetect);
+    sessionStorage.setItem("count_multiplepersonsdetect", count_multiplepersonsdetect);
+    sessionStorage.setItem("count_laptopdetect", count_laptopdetect);
+    sessionStorage.setItem("count_bookdetect", count_bookdetect);
+    sessionStorage.setItem("count_phonedetect", count_phonedetect);
 
   };
 

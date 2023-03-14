@@ -9,6 +9,7 @@ import exam_timer from './formvalid';
 import formvalid from './formvalid';
 import firebase from "firebase/app";
 import "./Dashboard2.css";
+import { PoseNet } from '@tensorflow-models/posenet';
 
 // var checkn = "";
 // var checke = "";
@@ -102,6 +103,10 @@ const Dashboard = (props) => {
     var PIDs = sessionStorage.getItem("checkname").slice(-6)
     //console.log(PIDs)
     var count_facedetect = sessionStorage.getItem("count_facedetect")
+    var count_multiplepersonsdetect = sessionStorage.getItem("count_multiplepersonsdetect")
+    var count_laptopdetect = sessionStorage.getItem("count_laptopdetect")
+    var count_bookdetect = sessionStorage.getItem("count_bookdetect");
+    var count_phonedetect = sessionStorage.getItem("count_phonedetect");
     var count_fullscreen = sessionStorage.getItem("count_fullscreen")
     var count_tabchange = sessionStorage.getItem("count_tabchange")
     var countalt = sessionStorage.getItem("countalt")
@@ -122,6 +127,10 @@ const Dashboard = (props) => {
         alt: countalt,
         tab: count_tabchange,
         face: count_facedetect,
+        multiple_face : count_multiplepersonsdetect,
+        laptop : count_laptopdetect,
+        book : count_bookdetect,
+        phone : count_phonedetect,
         fullscreen: count_fullscreen,
         semail: checke,
         sname: checkn,
@@ -219,7 +228,6 @@ const Dashboard = (props) => {
         <div className="detect">
           {/* Detection Section Starts here*/}
           <Detection>
-
           </Detection>
           {/*Detection Section ends here */}
         </div>

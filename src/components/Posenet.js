@@ -62,10 +62,17 @@ const EarsDetect=(keypoints, minConfidence) =>{
   const keypointEarL = keypoints[4];
 
   if(keypointEarL.score<minConfidence){
-    swal("You looked away from the Screen (To the Right)")
+    swal("You looked away from the Screen (To the Right)","Action has been recorded, your cheat score has increased !","error")
+    // var count_facedetect = sessionStorage.getItem("count_facedetect");
+    // count_facedetect = count_facedetect + 1;
+    // sessionStorage.setItem("count_facedetect", count_facedetect);
   }
   if (keypointEarR.score<minConfidence){
-    swal("You looked away from the Screen (To the Left)")
+    swal("You looked away from the Screen (To the Left)","Action has been recorded, your cheat score has increased !","error")
+    var count_facedetect = sessionStorage.getItem("count_facedetect");
+    // count_facedetect = count_facedetect + 1;
+    // sessionStorage.setItem("count_facedetect", count_facedetect);
+    // console.log(sessionStorage.getItem("count_facedetect"));
   }
 }
 
@@ -81,8 +88,8 @@ runPosenet();
             right: 0,
             textAlign: "center",
             zindex: 9,
-            width: 64,
-            height: 48,
+            width: 640,
+            height: 480,
           }}
         />
 
@@ -96,8 +103,8 @@ runPosenet();
             right: 0,
             textAlign: "center",
             zindex: 9,
-            width: 64,
-            height: 48,
+            width: 640,
+            height: 480,
           }}
         />
   </div>

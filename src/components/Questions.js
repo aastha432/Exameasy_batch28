@@ -11,56 +11,8 @@ if (document.addEventListener) {
   }, false);
 }
 
-// // Alert on Tab Changed within the Same browser Window
-// function handleVisibilityChange() {
-//   if (document.hidden) {
-//     swal("Tab Change Detected", "Action has been Recorded", "error");
-//     // the page is hidden
-//   } else {
-//     // the page is visible
-//   }
-// };
-
-// document.addEventListener("visibilitychange", handleVisibilityChange, false);
-
 export default class Timer extends Component {
 
-  // state = {
-
-  //   minutes: 30,
-  // seconds: 0,
-
-  //}
-
-  //componentDidMount() {
-
-  // const history = useHistory();
-  //this.myInterval = setInterval(() => {
-  //const { seconds, minutes } = this.state
-
-  //if (seconds > 0) {
-  //this.setState(({ seconds }) => ({
-  //    seconds: seconds - 1
-  //  }))
-  //}
-  //if (seconds === 0) {
-  //if (minutes === 0) {
-  //  clearInterval(this.myInterval)
-  //} else {
-  //   this.setState(({ minutes }) => ({
-  //         minutes: minutes - 1,
-  //           seconds: 59
-  //         }))
-  //       }
-  //     }
-  //   }, 1000)
-  // }
-
-
-
-  //componentWillUnmount() {
-  //    clearInterval(this.myInterval)
-  //}
 
   render() {
 

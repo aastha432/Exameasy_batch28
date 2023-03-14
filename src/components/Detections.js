@@ -2,14 +2,20 @@ import React from "react";
 import swal from 'sweetalert';
 //import count from './Login';
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
+import * as posenet from '@tensorflow-models/posenet';
 import "@tensorflow/tfjs";
 import "./Detections.css";
 var count_facedetect = 0;
+var count_phonedetect = 0;
+var count_bookdetect = 0;
+var count_laptopdetect = 0;
+var count_multiplepersonsdetect = 0;
 
 
 export default class Detection extends React.Component {
   videoRef = React.createRef();
   canvasRef = React.createRef();
+  temp = null;
 
   componentDidMount() {
 
@@ -32,6 +38,8 @@ export default class Detection extends React.Component {
             };
           });
         });
+
+
       const modelPromise = cocoSsd.load();
       Promise.all([modelPromise, webCamPromise])
         .then(values => {
@@ -46,7 +54,6 @@ export default class Detection extends React.Component {
   detectFrame = (video, model) => {
     model.detect(video).then(predictions => {
       if (this.canvasRef.current) {
-
         this.renderPredictions(predictions);
         requestAnimationFrame(() => {
           this.detectFrame(video, model);
@@ -83,23 +90,21 @@ export default class Detection extends React.Component {
       const textHeight = parseInt(font, 10); // base 10
       ctx.fillRect(x, y, textWidth + 8, textHeight + 8);
 
-      console.log(predictions)
-      
       var multiple_face = 0;
       for (let i = 0; i < predictions.length; i++) {
 
         //Face,object detection
         if (predictions[i].class === "cell phone") {
           swal("Cell Phone Detected", "Action has been recorded, your cheat score has increased !","error");
-          count_facedetect = count_facedetect + 1;
+          count_phonedetect = count_phonedetect + 1;
         }
         else if (predictions[i].class === "book") {
           swal("Book Detected", "Action has been recorded, your cheat score has increased !","error");
-          count_facedetect = count_facedetect + 1;
+          count_bookdetect = count_bookdetect + 1;
         }
         else if (predictions[i].class === "laptop") {
           swal("Laptop Detected", "Action has been recorded, your cheat score has increased !","error");
-          count_facedetect = count_facedetect + 1;
+          count_laptopdetect = count_laptopdetect + 1;
         }
         else if (predictions[i].class === "person") {
           multiple_face = multiple_face + 1;
@@ -112,7 +117,7 @@ export default class Detection extends React.Component {
 
       if(multiple_face >= 2){
         swal("Multiple persons detected", "Action has been recorded, your cheat score has increased !","error");
-        count_facedetect = count_facedetect + 1;
+        count_multiplepersonsdetect = count_multiplepersonsdetect + 1;
       }
     });
 
@@ -128,9 +133,12 @@ export default class Detection extends React.Component {
         ctx.fillText(prediction.class, x, y);
       }
     });
-    //console.log("final")
-    //console.log(count_facedetect)
+
     sessionStorage.setItem("count_facedetect", count_facedetect);
+    sessionStorage.setItem("count_multiplepersonsdetect", count_multiplepersonsdetect);
+    sessionStorage.setItem("count_laptopdetect", count_laptopdetect);
+    sessionStorage.setItem("count_bookdetect", count_bookdetect);
+    sessionStorage.setItem("count_phonedetect", count_phonedetect);
 
   };
 
