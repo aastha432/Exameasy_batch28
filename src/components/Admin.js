@@ -4,6 +4,9 @@ import firebase from "firebase/app";
 import './Results.css';
 import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
+import {TextField, Container, Box} from '@material-ui/core';
+
+
 const Admin = () => {
   const history = useHistory();
 
@@ -29,13 +32,16 @@ const Admin = () => {
     con_db.on('value', (snapshot) => {
   
       var s = snapshot.val()
-      console.log(s)
+      console.log(s);
       con_db.child(examcode).set({
         formlink: formlink,
         examtimer: examtimer
       });
       alert("The form was submitted");
-      history.push("/");
+      setTitle('');
+      setFormlink('');
+      setTimer('');
+      // history.push("/");
     
   });
   }
@@ -52,38 +58,37 @@ const Admin = () => {
     };
 
   return (
-    <div className="App-header">
-      <body style={{backgroundColor:'#282c34'}}>
-    <p>
-      <center>
-        <h1 style={{color:'white'}} >
-          <i>Welcome Admin</i>
-    </h1>
-        <br></br>
-        <h3 style={{color:'white'}}>
-          Enter a unique code for the exam
-    </h3>
-        <input type="text" id="examcode" name="examcode" value={examcode} onChange={onChangeexamcode}></input>
-        <br></br>
-        <br></br>
-        <h3 style={{color:'white'}}>Enter Google/Microsoft form link </h3>
-        <input type="text" id="formlink" name="formlink" value={formlink} onChange={onChangeformlink}></input>
-        <br></br>
-        <br></br>
-        <h3 style={{color:'white'}}>Enter the time duration of the exam in MINUTES</h3>
-        <input type="text" id="examtimer" name="examtimer" value={examtimer} onChange={onChangeTimer}></input>
-        <br></br>
-        <br></br>
-        <br></br>
-        <Button variant="contained" onClick={handleClicksub} style={{ marginLeft: '10px' }} color="primary" >Create Exam</Button>
-        <Button variant="contained" onClick={results} style={{ marginLeft: '60px' }} color="secondary">See Results</Button>
-        <br></br>
-        <br></br>
-        <br></br>
-        <Button onClick = {logout} variant="contained"> LogOut </Button>
-      </center>
-    </p>
-    </body>
+    <div >
+        <Container maxWidth="sm">
+          <center>
+            <h1 style={{color:'black', marginTop:'100px'}} >
+              <i>Welcome Admin</i>
+            </h1>
+            <br></br>
+
+            <h5 style={{color:'black'}}> Enter a unique code for the exam </h5>
+            <TextField id="filled-basic" label="Examcode" variant="outlined" onChange={onChangeexamcode} value={examcode}/>
+            <br></br>
+            <br></br>
+
+            <h5 style={{color:'black'}}>Enter Google/Microsoft form link </h5>
+            <TextField id="filled-basic" label="Formlink" variant="outlined" onChange={onChangeformlink} value={formlink}/>
+            <br></br>
+            <br></br>
+
+            <h5 style={{color:'black'}}>Enter the time duration of the exam in MINUTES</h5>
+            <TextField id="filled-basic" label="Examtimer" variant="outlined" onChange={onChangeTimer} value={examtimer}/>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Button variant="contained" onClick={handleClicksub} style={{ marginLeft: '10px' }} color="primary" >Create Exam</Button>
+            <Button variant="contained" onClick={results} style={{ marginLeft: '60px' }} color="secondary">See Results</Button>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Button onClick = {logout} variant="contained"> LogOut </Button>
+          </center>
+        </Container>
     </div>
     
   )
