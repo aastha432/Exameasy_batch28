@@ -52,7 +52,7 @@ GoToAdmin() {
     
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
+        <TableHead >
           <TableRow>
             <TableCell>Name</TableCell>
             <TableCell align="right">Email</TableCell>

@@ -5,20 +5,20 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import swal from 'sweetalert';
 import './Results.css';
-//import Button from '@material-ui/core/Button';
+import {Box, Button, TextField} from '@material-ui/core';
 import firebase from "firebase/app";
-// import Button from '@material-ui/core/Button';
 require('firebase/auth')
 
 
 const AdminSignIn = () => {
  
-  const [currentUser, setCurrentUser] = useState(null);    
-  const handleSubmit = (e) => {
-    e.preventDefault();    
-    const { email, password } = e.target.elements;
+  const [currentUser, setCurrentUser] = useState(null); 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = () => {
     try {
-      config.auth().signInWithEmailAndPassword(email.value, password.value).then((u)=>{
+      config.auth().signInWithEmailAndPassword(email, password).then((u)=>{
         setCurrentUser(true);
       }).catch((error) =>
       {
@@ -37,17 +37,27 @@ const AdminSignIn = () => {
    
   return (
     
-      <div className="App-header1">
-      <h1 style={{color:'white'}}>Sign In</h1>
-      <form onSubmit={handleSubmit} >
-        <label for="email" style={{color:'white'}}>Email: </label><br/>
-        <input type="email" name="email" placeholder="Email" />
-        <br/><br/>
-        <label for="password" style={{color:'white'}}>Password: </label><br/>
-        <input type="password" name="password" placeholder="Password" />
-        <br/><br/>
-        <input type="submit" class="center-block"/>
-      </form>
+      <div >
+        <center>
+          <br></br>
+          <br></br>
+          <h1 style={{color:'black'}}>Sign In</h1>
+          <br></br>
+
+          <h5 style={{color:'black'}}>Enter email</h5>
+          <TextField id="filled-basic" label="Email" variant="outlined" onChange={(e)=>{
+            //console.log(e.target.value);
+            setEmail(e.target.value);
+            }} value={email}/>
+          <br></br>
+            <br></br>
+          <h5 style={{color:'black'}}>Enter password</h5>
+          <TextField id="filled-basic" label="Password" variant="outlined" onChange={(e)=>setPassword(e.target.value)} value={password}/>
+
+          <br></br>
+          <br></br>
+          <Button variant="contained" onClick={handleSubmit} style={{ marginLeft: '10px' }} color="primary" >Sign In</Button>
+        </center>
       </div>
     
   );
