@@ -9,13 +9,15 @@ import exam_timer from './formvalid';
 import formvalid from './formvalid';
 import firebase from "firebase/app";
 import "./Dashboard2.css";
-import { PoseNet } from '@tensorflow-models/posenet';
+import { v4 as uuidv4 } from 'uuid';
 
 // var checkn = "";
 // var checke = "";
 
 
 const Dashboard = (props) => {
+
+  var studentID = "";
 
   var form_link = sessionStorage.getItem("form_link");
 
@@ -100,8 +102,8 @@ const Dashboard = (props) => {
 
   //Displays Score in Thankyou page
   function handleClicksub() {
-    var PIDs = sessionStorage.getItem("checkname").slice(-6)
-    //console.log(PIDs)
+    var SID = uuidv4();
+    studentID = SID;
     var count_facedetect = sessionStorage.getItem("count_facedetect")
     var count_multiplepersonsdetect = sessionStorage.getItem("count_multiplepersonsdetect")
     var count_laptopdetect = sessionStorage.getItem("count_laptopdetect")
@@ -123,7 +125,8 @@ const Dashboard = (props) => {
       var codeexam = sessionStorage.getItem("formvalid", formvalid);
       //var codeexam =  s[d]
       //console.log(s)
-      con_db.child(codeexam).child(PIDs).set({
+      con_db.child(codeexam).child(SID).set({
+        SID : SID,
         alt: countalt,
         tab: count_tabchange,
         face: count_facedetect,
@@ -233,8 +236,7 @@ const Dashboard = (props) => {
         </div>
 
         <div className="lame">
-          <h3 align="left">Name :  <span style={{ fontSize: '20px' }} > {JSON.stringify(sessionStorage.getItem("checkname")).slice(1, -8)}</span></h3>
-          <h3 align="left">PID :  <span style={{ fontSize: '20px' }} > {JSON.stringify(sessionStorage.getItem("checkname")).slice(-7).slice(0, -1)}</span></h3>
+          <h3 align="left">Name :  <span style={{ fontSize: '20px' }} > {JSON.stringify(sessionStorage.getItem("checkname"))}</span></h3>
         </div>
 
         <div className="leftClass">

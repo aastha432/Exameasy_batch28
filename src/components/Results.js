@@ -3,6 +3,15 @@ import firebase from "firebase/app";
 import { Button } from '@material-ui/core';
 import './Results.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
+
 
 class Results extends React.Component {
 
@@ -39,50 +48,52 @@ GoToAdmin() {
     <div className="MainDiv">
       <div class="givecolor">
           <h3>Cheat Score Records</h3>
-           
       </div>
     
-      <div >
-          <table id="example" class="display table">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Face not visible (bursts)</th>
-                    <th>Phone detected (bursts)</th>
-                    <th>Book detected (bursts)</th>
-                    <th>Laptop detected (bursts)</th>
-                    <th>Multiple persons detected (bursts)</th>
-                    <th>Fullscreen exit (number)</th>
-                    <th>Tab Change (number)</th>
-                    <th>Photo</th>
-                </tr>
-            </thead>
-            <tbody>
-            {this.state.studentslist.map(data => {
-                console.log(data)
-                return (
-                    <tr className="pool">     
-                    <td>{data.sname}</td>
-                    <td>{data.semail}</td>
-                    <td>{data.face}</td>
-                    <td>{data.phone}</td>
-                    <td>{data.book}</td>
-                    <td>{data.laptop}</td>
-                    <td>{data.multiple_face}</td>
-                    <td>{data.fullscreen}</td>
-                    <td>{data.tab}</td>
-                    <td> {<img src={data.photo} width="150px" height="100px"/>}
-                    </td>
-                    </tr>                 
-                );             
-                })}
-                   
-            </tbody>
+      <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Name</TableCell>
+            <TableCell align="right">Email</TableCell>
+            <TableCell align="right">Face not visible</TableCell>
+            <TableCell align="right">Phone detected</TableCell>
+            <TableCell align="right">Book detected</TableCell>
+            <TableCell align="right">Laptop detected</TableCell>
+            <TableCell align="right">Multiple persons detected</TableCell>
+            <TableCell align="right">Fullscreen exit detected</TableCell>
+            <TableCell align="right">Tab Change detected</TableCell>
+            <TableCell align="right">Photo</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {this.state.studentslist.map((row) => (
+            <TableRow
+              key={row.SID}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.sname}
+              </TableCell>
+              <TableCell align="right">{row.semail}</TableCell>
+              <TableCell align="right">{row.face}</TableCell>
+              <TableCell align="right">{row.phone}</TableCell>
+              <TableCell align="right">{row.book}</TableCell>
+              <TableCell align="right">{row.laptop}</TableCell>
+              <TableCell align="right">{row.multiple_face}</TableCell>
+              <TableCell align="right">{row.fullscreen}</TableCell>
+              <TableCell align="right">{row.tab}</TableCell>
+              <TableCell align="right">{<img src={row.photo} width="150px" height="100px"/>}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+
             
-         </table>
-     </div>
-             <div className="center-block"><Button onClick = {this.GoToAdmin} variant="contained" color="primary"> Return To Admin </Button></div>
+      <div className="center-block"><Button onClick = {this.GoToAdmin} variant="contained" color="primary">
+       Return To Admin </Button>
+      </div>
     </div>
      
   );
