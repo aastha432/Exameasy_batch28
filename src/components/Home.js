@@ -2,11 +2,11 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom'
 import logo from './../logo.png';
-import './../App.css';
 //import { Redirect } from "react-router-dom";
 //import { AuthContext } from "./Auth";
 import Button from '@material-ui/core/Button';
-import { AppBar, Toolbar, Box } from '@material-ui/core';
+import { AppBar, Toolbar, Box, Typography } from '@material-ui/core';
+import './Home.css';
 
 
 const MainPage = () => {
@@ -53,18 +53,39 @@ const MainPage = () => {
   return (
     <div>
       <AppBar style={{ position: 'fixed', top: 0 }} color="primary">
-        <Toolbar />
+        <Toolbar><Typography variant="h5" color="textSecondary">Exameasy</Typography></Toolbar>
+        
       </AppBar>
       <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
         <center>
-          <br></br><br></br><br></br><br></br>
-          <img src="/background.png" height={250} width={250}/>
-          <h3>Welcome to Exameasy</h3>
-          <h5>Smart Online Proctoring Examination System</h5>
-          <br></br>
-          <Button id="homeButtons" style={{ fontSize: '15px' }} variant="contained" size="medium" onClick={handleClick}>Student Login</Button>
-          <br></br>
-          <Button id="homeButtons" variant="contained" onClick={handleClickAdmin}>Admin Login</Button>
+          <br></br><br></br><br></br>
+
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              p: 1,
+              m: 1,
+              borderRadius: 1,
+            }}
+          >
+            <Box>
+              <img src="/proctoring.gif" class="proctoring"/>
+            </Box>
+            <Box>
+              <br></br><br></br><br></br>
+              <img src="/background.png" height={300} width={300}/>
+              <h3>Welcome to Exameasy</h3>
+              <h5>Smart Online Proctoring Examination System</h5>
+              <br></br>
+              <Button id="homeButtons" style={{ fontSize: '15px' }} variant="contained" size="medium" onClick={handleClick}>Student Login</Button>
+              <br></br>
+              <Button id="homeButtons" variant="contained" onClick={handleClickAdmin}>Admin Login</Button>
+            </Box>
+          
+          
+          </Box>
         </center>
       </Box>
     </div>

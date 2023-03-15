@@ -1,0 +1,7 @@
+.proctoring{
+    width: 950px;
+    height: auto;
+    border: 2px solid #5aadf0;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 5px rgba(16, 43, 139, 0.8);
+}
