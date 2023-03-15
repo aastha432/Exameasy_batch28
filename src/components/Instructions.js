@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core'
+import { Button, Box } from '@material-ui/core'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import instruction from "./instruction.jpg"
@@ -30,7 +30,10 @@ const Instructions = () => {
     // document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
     return (
-        <div className="App-header">
+        <div >
+            <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
+            <center>
+                <br></br><br></br><br></br>
             <center>
                 <h2>
                    <b>Instructions To Follow:</b> 
@@ -113,8 +116,8 @@ c. Running any other application on the gadget through which you are appearing f
             <Button variant="contained" onClick={onAccept}>I Accept</Button>
             <br/>
             <br/>
-
-
+        </center>
+        </Box>
         </div>
     )
 }

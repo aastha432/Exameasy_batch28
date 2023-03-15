@@ -1,6 +1,6 @@
 import React from 'react'
 import firebase from "firebase/app";
-import { Button } from '@material-ui/core';
+import { Button, AppBar, Toolbar, Box } from '@material-ui/core';
 import './Results.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from '@material-ui/core/Table';
@@ -22,7 +22,7 @@ constructor(props) {
     }
 
   componentDidMount() {
-  var  childcode = sessionStorage.getItem("inputcode");
+    var  childcode = sessionStorage.getItem("inputcode");
   //console.log("Checktable", childcode);
    
       firebase.database().ref("stud_records").child(childcode).on("value", snapshot => {
@@ -43,9 +43,18 @@ GoToAdmin() {
         window.location.href = '/admin';
     }
 
+  
+
   render(){
   return (
     <div className="MainDiv">
+      <AppBar style={{ position: 'fixed', top: 0 }} color="primary">
+            <Toolbar />
+      </AppBar>
+      <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
+
+      <center>
+      <br></br><br></br>
       <div class="givecolor">
           <h3>Cheat Score Records</h3>
       </div>
@@ -94,6 +103,7 @@ GoToAdmin() {
       <div className="center-block"><Button onClick = {this.GoToAdmin} variant="contained" color="primary">
        Return To Admin </Button>
       </div>
+      </center></Box>
     </div>
      
   );

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import firebase from "firebase/app";
 import { useHistory } from 'react-router-dom'
-import { Button } from '@material-ui/core';
+import { Button, Box, TextField } from '@material-ui/core';
 import "./formvalid.css"
 import swal from 'sweetalert';
 
@@ -54,18 +54,21 @@ const Formvalid = () => {
 
   return (
     
-    <div className="App-header1">
-      <h3><p  align="center" style={{color:'white'}} >Enter Exam Code To Proceed</p></h3>
+    <div >
+      <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
+      <center>
+        <br></br><br></br><br></br><br></br>
+      <h3><p  align="center" style={{color:'black'}} >Enter Exam Code To Proceed</p></h3>
       <center>
       
       <td class="text-center">
-        <input type="text" id="formvalid" name="formvalid" value={formvalid} onChange={onChangeformvalid}></input>
+        <TextField id="filled-basic" label="Examcode" variant="outlined" onChange={onChangeformvalid} value={formvalid}/>
         <br></br>
         <br></br>
         <Button variant="contained" onClick={handleClickformvalid}>Submit</Button>
       </td>
       <br></br>
-    </center>
+    </center></center></Box>
     </div> 
   )
 }

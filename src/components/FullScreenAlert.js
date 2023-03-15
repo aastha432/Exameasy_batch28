@@ -1,7 +1,7 @@
 import React from 'react'
-import Button from '@material-ui/core/Button';
+import {Button, Box} from '@material-ui/core';
 import { useHistory } from 'react-router-dom'
-import warning from "./warning.jpg"
+import warning from "./warning.png"
 import { useState, useEffect } from 'react';
 //var count_browser = 0;
 
@@ -77,27 +77,28 @@ const FullScreenAlert = (props) => {
     };
   });
 
-  return (<div className="App-header">
+  return (
+  <div>
+    <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
     <center>
-    <div>
-      <img src={warning} id="warningIcon" />
+      <br></br> <br></br> <br></br>
+      <div>
+      <img src={warning} id="warningIcon" height={"200px"}  width={"200px"}/>
       </div>
       <br/>
       <h3>
-        SINCE YOU ESCAPED FULLSCREEN, YOUR ANSWERS ARE LOST!!
+        You escaped fullscreen ! Your question paper has been reset.
         </h3>
         <br/>
         <small>
-            Action has been Recorded!
+            Your cheat score is increased!
         </small>
         <br/>
         <br/>
-        <p>
-        <i>Another Atempt to do so will get you Debared from the Test</i>
-        </p>
        
       <Button variant='contained' onClick={back2exam}>I Understand, get me back to Exam</Button>
     </center>
+    </Box>
   </div>
   )
 }

@@ -5,6 +5,8 @@ import Webcam from "react-webcam";
 import { useHistory } from 'react-router-dom';
 import './validate.css';
 import { Container, Row, Col } from 'react-bootstrap'
+import { AppBar, Box, Toolbar} from '@material-ui/core';
+
 
 const ValidatePage = () => {
   var buttonfield = true;
@@ -50,7 +52,14 @@ const ValidatePage = () => {
   function handleClick() {
     history.push("/systemcheck");
   }
-  return (<div className="App-header">
+  return (
+  <div>
+    <AppBar style={{ position: 'fixed', top: 0 }} color="primary">
+            <Toolbar />
+          </AppBar>
+          <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
+            <center>
+    <br></br><br></br><br></br><br></br><br></br>
     <center>
 
       <p ><b>Instructions to Follow:</b></p>
@@ -80,8 +89,9 @@ const ValidatePage = () => {
     </Container>
 
     <Button id="validateButtons" variant="contained" onClick={capture}>Capture Photo</Button>
-
+              <br></br>
     <Button id="validateButtons" disabled={buttonfield} variant="contained" onClick={handleClick}>Confirm Validation</Button>
+  </center></Box>
   </div>
   )
 }

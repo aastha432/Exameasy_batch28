@@ -6,6 +6,7 @@ import { gapi } from "gapi-script";
 
 
 import { GoogleLogin } from 'react-google-login'
+import { Box, AppBar, Toolbar } from '@material-ui/core';
 
 // const client_id = "544104470592-tmud4b78eecjhd58aft6qrg84jfoqq9h.apps.googleusercontent.com"
 const client_id = "503971528272-vhrh8mco1rhnl29go92pchpig44h4f20.apps.googleusercontent.com" // ours
@@ -67,12 +68,19 @@ const LoginPage = () => {
 
 
       </head>
-      <header className="App-header">
-        <h1>Login</h1>
-        <p>
-          Login using only your Gmail account
-        </p>
+      <AppBar style={{ position: 'fixed', top: 0 }} color="primary">
+            <Toolbar />
+      </AppBar>
+      <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
 
+      <center>
+      <header>
+        <br></br><br></br><br></br><br></br><br></br>
+        <h3>Login</h3>
+        <h5>
+          Login using only your Gmail account
+        </h5>
+        <br></br><br></br>
         <GoogleLogin
 
           clientId={client_id}
@@ -83,7 +91,7 @@ const LoginPage = () => {
           cookiePolicy={'single_host_origin'}
           isSignedIn={false}
         />
-      </header>
+      </header></center></Box>
     </div>
   );
 }

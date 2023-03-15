@@ -1,10 +1,10 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 //import config from "../config";
 import firebase from "firebase/app";
 import './Results.css';
 import { Button } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
-import {TextField, Container, Box} from '@material-ui/core';
+import { useHistory , Redirect} from 'react-router-dom';
+import {TextField, Container, AppBar, Box, Toolbar} from '@material-ui/core';
 
 
 const Admin = () => {
@@ -24,6 +24,7 @@ const Admin = () => {
   const onChangeTimer = (e) => {
     setTimer(e.target.value);
   };
+
 
   function handleClicksub() {
     
@@ -47,7 +48,7 @@ const Admin = () => {
   }
     
   
-   function results(){
+  function results(){
     history.push('/codecheck');
 
   }
@@ -57,12 +58,18 @@ const Admin = () => {
         window.location.href = '/';
     };
 
+  
+
   return (
     <div >
-        <Container maxWidth="sm">
+          <AppBar style={{ position: 'fixed', top: 0 }} color="primary">
+            <Toolbar />
+          </AppBar>
+          <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
           <center>
-            <h1 style={{color:'black', marginTop:'100px'}} >
-              <i>Welcome Admin</i>
+          <br></br><br></br><br></br><br></br>
+            <h1 style={{color:'black'}} >
+              Welcome Admin
             </h1>
             <br></br>
 
@@ -88,7 +95,7 @@ const Admin = () => {
             <br></br>
             <Button onClick = {logout} variant="contained"> LogOut </Button>
           </center>
-        </Container>
+          </Box>
     </div>
     
   )

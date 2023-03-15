@@ -1,4 +1,4 @@
-import Button from '@material-ui/core/Button';
+import {Button, Box} from '@material-ui/core';
 import thanks from "./thanks.png"
 
 const Thankyou = () => {
@@ -11,11 +11,10 @@ const Thankyou = () => {
     var checke = sessionStorage.getItem("checkemail")
 
     return (
-        <div className="App-header">
+        <div>
+            <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
             <center>
-                {/* <h3>
-                    Thankyou for giving the test 
-                </h3> */}
+                <br></br><br></br><br></br><br></br>
                 <img src={thanks} id="thankyou"  height="400px"/>
                 {/* <h2>Cheat Score</h2> */}
                 <br/>
@@ -47,6 +46,7 @@ const Thankyou = () => {
 
                 <Button variant="contained" onClick={handleClickExit}>Exit Secure Window</Button>
             </center>
+            </Box>
         </div>
     )
 }

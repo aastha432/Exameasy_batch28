@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core';
+import { Button, Box, AppBar, Toolbar } from '@material-ui/core';
 import React from 'react'
 import { useHistory } from 'react-router-dom';
 import "./SystemCheck.css"
@@ -163,7 +163,13 @@ const SystemCheck = () => {
 
 
   return (
-    <body class="App-header">
+    <div>
+      <AppBar style={{ position: 'fixed', top: 0 }} color="primary">
+            <Toolbar />
+      </AppBar>
+      <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
+      <center>
+        <br></br><br></br><br></br><br></br>
       <div class="main">
         <p class="sign" align="center">System Compatibility Check</p>
         <table align="center">
@@ -221,8 +227,8 @@ const SystemCheck = () => {
         </center>
 
       </div>
-
-    </body>
+      </center></Box>
+    </div>
 
   )
 }

@@ -6,6 +6,7 @@ import './../App.css';
 //import { Redirect } from "react-router-dom";
 //import { AuthContext } from "./Auth";
 import Button from '@material-ui/core/Button';
+import { AppBar, Toolbar, Box } from '@material-ui/core';
 
 
 const MainPage = () => {
@@ -47,21 +48,25 @@ const MainPage = () => {
 }
  //  <img src={logo} alt="logo" />
  // <img src="/background.jpeg" />
+ //<Button id="homeButtons" variant="contained" onClick={headpose} color="primary">Check Headpose estimation</Button>
 
   return (
     <div>
-      <header className="App-header">
-      <img src="/background.png" height={250} width={250}/>
-        <p>
-          Welcome to Exameasy
-        </p>
-        <small>
-          Smart Online Proctoring Examination System
-        </small>
-        <Button id="homeButtons" style={{ fontSize: '15px' }} variant="contained" size="medium" onClick={handleClick}>Student Login</Button>
-        <Button id="homeButtons" variant="contained" onClick={handleClickAdmin}>Admin Login</Button>
-        <Button id="homeButtons" variant="contained" onClick={headpose} color="primary">Check Headpose estimation</Button>
-      </header>
+      <AppBar style={{ position: 'fixed', top: 0 }} color="primary">
+        <Toolbar />
+      </AppBar>
+      <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
+        <center>
+          <br></br><br></br><br></br><br></br>
+          <img src="/background.png" height={250} width={250}/>
+          <h3>Welcome to Exameasy</h3>
+          <h5>Smart Online Proctoring Examination System</h5>
+          <br></br>
+          <Button id="homeButtons" style={{ fontSize: '15px' }} variant="contained" size="medium" onClick={handleClick}>Student Login</Button>
+          <br></br>
+          <Button id="homeButtons" variant="contained" onClick={handleClickAdmin}>Admin Login</Button>
+        </center>
+      </Box>
     </div>
   );
 }

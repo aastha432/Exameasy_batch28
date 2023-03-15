@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import firebase from "firebase/app";
-import { useHistory } from 'react-router-dom'
+import { useHistory , Redirect} from 'react-router-dom'
 import { Button } from '@material-ui/core';
+import {TextField, Container, AppBar, Box, Toolbar} from '@material-ui/core';
+
 //import { Redirect } from "react-router-dom";
 import swal from 'sweetalert';
 const CodeCheck = () => {
@@ -35,14 +37,26 @@ const CodeCheck = () => {
       });      
     }
   
+    // if (localStorage.getItem("currentAdmin")) {
+    //     return <Redirect to="/codecheck" />;
+    // }
+    // else{
+    //   return <Redirect to="/"/>;
+    // }
 
     return (
-    <div className="App-header1">
-    <h3>Enter Exam Code</h3>
-      <input type="text" name="inputcode" id="inputcode" onChange={onChangeInputcode} value={inputcode}></input>
-
-      <br></br>
-    <Button variant="contained" onClick={Getdata}>Submit</Button>
+    <div>
+      <AppBar style={{ position: 'fixed', top: 0 }} color="primary">
+            <Toolbar />
+          </AppBar>
+          <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
+            <center>
+            <br></br><br></br><br></br><br></br><br></br>
+          <h5 style={{color:'black'}}> Enter Exam Code</h5><br></br>
+          <TextField id="filled-basic" label="Examcode" variant="outlined" onChange={onChangeInputcode} value={inputcode}/>
+          <br></br><br></br>
+          <Button variant="contained" onClick={Getdata}>Submit</Button></center>
+    </Box>
   </div>
   )
 }
