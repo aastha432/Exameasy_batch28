@@ -8,8 +8,9 @@ import { gapi } from "gapi-script";
 import { GoogleLogin } from 'react-google-login'
 import { Box, AppBar, Toolbar } from '@material-ui/core';
 
-// const client_id = "544104470592-tmud4b78eecjhd58aft6qrg84jfoqq9h.apps.googleusercontent.com"
-const client_id = "503971528272-vhrh8mco1rhnl29go92pchpig44h4f20.apps.googleusercontent.com" // ours
+// 503971528272-gaeb14hrlk2t0rh55hl3p4t1g51v3bi5.apps.googleusercontent.com - exameasy
+// 544380108275-kr6k0rarc4hv5r352o4hlnmjkofr970e.apps.googleusercontent.com - exameasy_28
+const client_id = "544380108275-kr6k0rarc4hv5r352o4hlnmjkofr970e.apps.googleusercontent.com" 
 
 const LoginPage = () => {
 
@@ -41,8 +42,7 @@ const LoginPage = () => {
   const onFaliure = (res) => {
     console.log("Error in logging in - ")
     console.log(res)
-    swal("Login Failed", "Kindly try again using Google Account", "error");
-    //console.log('[Login Success] res:', res);
+    swal("Login Failed", res.error, "error");
   };
 
   const history = useHistory();
@@ -64,7 +64,7 @@ const LoginPage = () => {
       <head>
         <script src="accounts.google.com/gsi/client" async defer></script>
 
-        <meta name="google-signin-client_id" content="503971528272-vhrh8mco1rhnl29go92pchpig44h4f20.apps.googleusercontent.com"></meta>
+        <meta name="google-signin-client_id" content="544380108275-kr6k0rarc4hv5r352o4hlnmjkofr970e.apps.googleusercontent.com"></meta>
 
 
       </head>

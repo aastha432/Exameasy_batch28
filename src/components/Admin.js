@@ -16,19 +16,26 @@ const Admin = () => {
   //
 
   const onChangeexamcode = (e) => {
+    console.log("onChangeexamcode - ",e.target.value);
     setTitle(e.target.value);
   };
   const onChangeformlink = (e) => {
+    console.log("onChangeformlink - ",e.target.value);
     setFormlink(e.target.value);
   };
   const onChangeTimer = (e) => {
+    console.log("onChangeTimer - ",e.target.value);
     setTimer(e.target.value);
   };
 
 
   function handleClicksub() {
+
+    console.log("Entere handleClicksub")
     
     const con_db = firebase.database().ref("con_dbs");
+
+    console.log(con_db)
 
     con_db.on('value', (snapshot) => {
   
@@ -93,7 +100,7 @@ const Admin = () => {
             <br></br>
             <br></br>
             <br></br>
-            <Button onClick = {logout} variant="contained"> LogOut </Button>
+            <Button onClick = {logout} variant="contained"> LOGOUT </Button>
           </center>
           </Box>
     </div>
