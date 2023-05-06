@@ -29,3 +29,12 @@
     display: inline-block;
     margin: 10px;
   }
+
+  .belowThreshold{
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+  }
+  .aboveThreshold{
+    color: red;
+    font-size: 15px;
+  }

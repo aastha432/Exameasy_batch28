@@ -15,4 +15,4 @@ const config = firebase.default.initializeApp({
 export const auth = firebase.auth();
 export default config;
 
-// dummy google form - https://forms.gle/L3fgGgU3Rm9r6dLh7 
+// dummy google form - https://forms.gle/kCmFeZ1qDDt77Q179
