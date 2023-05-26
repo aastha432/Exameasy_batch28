@@ -8,9 +8,9 @@ import { gapi } from "gapi-script";
 import { GoogleLogin } from 'react-google-login'
 import { Box, AppBar, Toolbar } from '@material-ui/core';
 
-// 503971528272-gaeb14hrlk2t0rh55hl3p4t1g51v3bi5.apps.googleusercontent.com - exameasy
-// 544380108275-kr6k0rarc4hv5r352o4hlnmjkofr970e.apps.googleusercontent.com - exameasy_28
-const client_id = "544380108275-kr6k0rarc4hv5r352o4hlnmjkofr970e.apps.googleusercontent.com" 
+const client_id = "179931156726-5fianr0bpq9bd7mssjt8inqn3th4tp0l.apps.googleusercontent.com" 
+//https://console.cloud.google.com/apis/dashboard?project=exameasy-28
+
 
 const LoginPage = () => {
 
@@ -64,7 +64,7 @@ const LoginPage = () => {
       <head>
         <script src="accounts.google.com/gsi/client" async defer></script>
 
-        <meta name="google-signin-client_id" content="544380108275-kr6k0rarc4hv5r352o4hlnmjkofr970e.apps.googleusercontent.com"></meta>
+        <meta name="google-signin-client_id" content="179931156726-5fianr0bpq9bd7mssjt8inqn3th4tp0l.apps.googleusercontent.com"></meta>
 
 
       </head>
