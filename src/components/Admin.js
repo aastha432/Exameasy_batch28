@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 //import config from "../config";
 import firebase from "firebase/app";
 import './Results.css';
+import swal from 'sweetalert';
 import { Button } from '@material-ui/core';
 import { useHistory , Redirect} from 'react-router-dom';
 import {TextField, Container, AppBar, Box, Toolbar} from '@material-ui/core';
@@ -16,42 +17,38 @@ const Admin = () => {
   //
 
   const onChangeexamcode = (e) => {
-    console.log("onChangeexamcode - ",e.target.value);
     setTitle(e.target.value);
   };
   const onChangeformlink = (e) => {
-    console.log("onChangeformlink - ",e.target.value);
     setFormlink(e.target.value);
   };
   const onChangeTimer = (e) => {
-    console.log("onChangeTimer - ",e.target.value);
     setTimer(e.target.value);
   };
 
 
   function handleClicksub() {
 
-    console.log("Entere handleClicksub")
-    
     const con_db = firebase.database().ref("con_dbs");
-
-    console.log(con_db)
 
     con_db.on('value', (snapshot) => {
   
       var s = snapshot.val()
-      console.log(s);
       con_db.child(examcode).set({
         formlink: formlink,
         examtimer: examtimer
-      });
-      alert("The form was submitted");
-      setTitle('');
-      setFormlink('');
-      setTimer('');
-      // history.push("/");
-    
-  });
+      }).then((res)=> {
+        console.log(res);
+        swal("Form submitted succesfully")
+        setTitle('');
+        setFormlink('');
+        setTimer('');
+      }).catch((error) => {
+        console.log(error)
+        swal("Error")
+      })
+      
+    });
   }
     
   
