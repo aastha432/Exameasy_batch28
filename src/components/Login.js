@@ -8,8 +8,8 @@ import { gapi } from "gapi-script";
 import { GoogleLogin } from 'react-google-login'
 import { Box, AppBar, Toolbar } from '@material-ui/core';
 
-const client_id = "179931156726-5fianr0bpq9bd7mssjt8inqn3th4tp0l.apps.googleusercontent.com" 
-//https://console.cloud.google.com/apis/dashboard?project=exameasy-28
+const client_id = "733409376286-v7b9hst90sraglslvuoudcv5jshj82d1.apps.googleusercontent.com" 
+// https://console.cloud.google.com/apis/credentials?project=exameasy-cb3de
 
 
 const LoginPage = () => {
@@ -64,7 +64,7 @@ const LoginPage = () => {
       <head>
         <script src="accounts.google.com/gsi/client" async defer></script>
 
-        <meta name="google-signin-client_id" content="179931156726-5fianr0bpq9bd7mssjt8inqn3th4tp0l.apps.googleusercontent.com"></meta>
+        <meta name="google-signin-client_id" content="733409376286-v7b9hst90sraglslvuoudcv5jshj82d1.apps.googleusercontent.com"></meta>
 
 
       </head>
